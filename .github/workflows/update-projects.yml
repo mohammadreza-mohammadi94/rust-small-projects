@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 0 * * 0' # weekly
 
+permissions:
+  contents: write   # برای دادن دسترسی push
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -22,14 +25,14 @@ jobs:
       - name: Run generate_projects.sh
         run: ./.github/scripts/generate_projects.sh
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           if git status --porcelain | grep -q 'projects/projects.md'; then
             git add projects/projects.md
             git commit -m "chore: update projects index"
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
           else
             echo "No changes to commit"
           fi
