@@ -1,0 +1,8 @@
+[package]
+name = "birthday_problem_simulation"
+version = "0.1.0"
+edition = "2024"
+description = "A simulation to demonstrate the birthday problem."
+
+[dependencies]
+rand="0.9"
