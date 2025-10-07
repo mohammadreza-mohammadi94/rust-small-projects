@@ -1,0 +1,42 @@
+# Generated .gitignore for Rust small projects
+
+# Rust/Cargo
+/target/
+/**/target/
+/Cargo.lock
+
+# Ignore generated documentation if you build locally
+/doc/
+
+# Binaries
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+
+# Visual Studio Code
+/.vscode/
+
+# JetBrains IDEs
+/.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.log
+
+# Node modules (if any)
+/node_modules/
+
+# Python envs
+venv/
+env/
+
+# GitHub Actions artifacts
+/.github/workflows/*.pem
